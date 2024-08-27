@@ -1,12 +1,12 @@
 import express, { Application, Request, Response} from 'express';
+import timeoffRoute from './routes/timeoff.route';
 
 const app: Application = express();
 const port: number = 3002;
 
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello timeoffms');
-});
+// Link timeoffRoute with app
+app.use('/timeoff', timeoffRoute);
 
 app.listen(port, () => {
-    console.log(`Connectted successfully on port ${port}`);
+    console.log(`Connected successfully on port ${port}`);
 });
